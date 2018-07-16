@@ -4,11 +4,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("NimbusFox.Minigame.MapCreator")]
+[assembly: AssemblyTitle("NimbusFox.Minigame.Interfaces")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("NimbusFox.Minigame.MapCreator")]
+[assembly: AssemblyProduct("NimbusFox.Minigame.Interfaces")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -19,7 +19,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("ce67dfb5-c25d-4506-bb56-2d6104b94a7d")]
+[assembly: Guid("b09a0470-954d-4188-ac70-61b9ef25ace0")]
 
 // Version information for an assembly consists of the following four values:
 //

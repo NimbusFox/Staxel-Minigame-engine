@@ -1,0 +1,5 @@
+﻿language.code=en-GB
+language=English
+
+mods.nimbusfox.exception.message=<NimbusFox>:^c:FF0000;An error occured in {0-mod} and an error log has been stored in the save folder under Mods\\Nimbusfox\\{1-mod}\\Errors. Currently there are no ways of sending the errors to me. If you see me in Discord don't hesitate to send me the file there. No personal information is gathered. Only what is public and what is stored in memory that {2-mod} has access to is present in the error files
+

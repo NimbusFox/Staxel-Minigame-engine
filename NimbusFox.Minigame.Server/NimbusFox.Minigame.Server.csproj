@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>NimbusFox.Minigame.Server</RootNamespace>
     <AssemblyName>NimbusFox.Minigame.Server</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -20,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>7.1</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -28,8 +30,37 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>7.1</LangVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Plukit.Base">
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Staxel\bin\Plukit.Base.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Staxel">
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Staxel\bin\Staxel.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Staxel.Auth">
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Staxel\bin\Staxel.Auth.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Staxel.OggVorbis">
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Staxel\bin\Staxel.OggVorbis.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Staxel.ToolUtilities">
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Staxel\bin\Staxel.ToolUtilities.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Staxel.Trace">
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Staxel\bin\Staxel.Trace.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Staxel.ValueSource">
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Staxel\bin\Staxel.ValueSource.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -40,7 +71,41 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\MinigameDatabase.cs" />
+    <Compile Include="MinigameServer.cs" />
+    <Compile Include="MinigameServerHook.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Staxel-FoxCore\NimbusFox.FoxCore\NimbusFox.FoxCore.csproj">
+      <Project>{8b473a82-8c34-44ea-b13d-39d0418e021f}</Project>
+      <Name>NimbusFox.FoxCore</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\NimbusFox.Minigame.Core\NimbusFox.Minigame.Core.csproj">
+      <Project>{dcf0213f-9828-4dd3-9f4c-1cee9b92aaa6}</Project>
+      <Name>NimbusFox.Minigame.Core</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\NimbusFox.Minigame.Interfaces\NimbusFox.Minigame.Interfaces.csproj">
+      <Project>{b09a0470-954d-4188-ac70-61b9ef25ace0}</Project>
+      <Name>NimbusFox.Minigame.Interfaces</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Commands\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="NimbusFox.Minigame.Server.En-gb.lang">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>echo {}  &gt; $(TargetDir)$(TargetName).mod</PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>del $(TargetDir)\*.mod</PreBuildEvent>
+  </PropertyGroup>
 </Project>

@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CE67DFB5-C25D-4506-BB56-2D6104B94A7D}</ProjectGuid>
+    <ProjectGuid>{B09A0470-954D-4188-AC70-61B9EF25ACE0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NimbusFox.Minigame.MapCreator</RootNamespace>
-    <AssemblyName>NimbusFox.Minigame.MapCreator</AssemblyName>
+    <RootNamespace>NimbusFox.Minigame.Interfaces</RootNamespace>
+    <AssemblyName>NimbusFox.Minigame.Interfaces</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -32,32 +32,13 @@
     <LangVersion>7.1</LangVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Plukit.Base">
+    <Reference Include="Plukit.Base, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Staxel\bin\Plukit.Base.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Staxel">
-      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Staxel\bin\Staxel.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Staxel.Auth">
-      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Staxel\bin\Staxel.Auth.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Staxel.OggVorbis">
-      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Staxel\bin\Staxel.OggVorbis.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Staxel.ToolUtilities">
-      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Staxel\bin\Staxel.ToolUtilities.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Staxel.Trace">
-      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Staxel\bin\Staxel.Trace.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Staxel.ValueSource">
-      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Staxel\bin\Staxel.ValueSource.dll</HintPath>
+      <HintPath>..\..\Staxel-FoxCore\NimbusFox.FoxCore.VersionCheck\bin\Debug\Staxel.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
@@ -71,30 +52,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\NimbusFox.Minigame.Core\NimbusFox.Minigame.Core.csproj">
-      <Project>{dcf0213f-9828-4dd3-9f4c-1cee9b92aaa6}</Project>
-      <Name>NimbusFox.Minigame.Core</Name>
-      <Private>False</Private>
-    </ProjectReference>
-    <ProjectReference Include="..\NimbusFox.Minigame.Server\NimbusFox.Minigame.Server.csproj">
-      <Project>{52759ad8-84d5-420c-b4c2-8809e16c1163}</Project>
-      <Name>NimbusFox.Minigame.Server</Name>
-      <Private>False</Private>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Commands\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
+    <Compile Include="V1\IGameMode.cs" />
+    <Compile Include="V1\IGameType.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup>
-    <PreBuildEvent>del $(TargetDir)\*.mod</PreBuildEvent>
-  </PropertyGroup>
-  <PropertyGroup>
-    <PostBuildEvent>echo {}  &gt; $(TargetDir)$(TargetName).mod</PostBuildEvent>
-  </PropertyGroup>
 </Project>
